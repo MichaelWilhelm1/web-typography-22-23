@@ -9,20 +9,58 @@ Feel free to adjust the defaults to your needs.
 	opacity: 0;
 	transition: .05s;
 	position: absolute;
+
 }
+
 #closed-captions .on {
 	opacity: 1;
 }
+
 #closed-captions .off {
 	transition: .2s;
 	opacity: 0;
 }
-.voice1 {
-	font-style: italic;
+
+.voice1,
+.voice4 {
+	font-family: "Brenner Mono";
+	font-style: Normal;
+	color: white;
+	font-weight: 400;
+	font-size: 20px;
+	text-shadow: 1px 2px 6px black;
+	top: 30vw;
+	left: 26vw;
+
 }
+
 .voice2 {
-	font-weight: bold;
+	font-family: "Brenner Sans";
+	font-style: Normal;
+	color: white;
+	font-weight: 400;
+	font-size: 22px;
+	letter-spacing: 1px;
+	text-shadow: 1px 2px 6px black;
+	text-align: right;
+	top: 32vw;
+	right: 26vw;
 }
+
+.voice3 {
+	font-family: "Brenner Sans Condensed";
+	font-style: italic;
+	color: red;
+	font-weight: 650;
+	font-size: 40px;
+	letter-spacing: 2px;
+	text-shadow: 1px 1px 4px black;
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
 
 /* **********************************************
 The first paragraph, with extended timing for 
@@ -34,74 +72,91 @@ You probably want to change the styling.
 ********************************************** */
 .p0 span {
 	opacity: 0;
-	font-family: brenner;
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:first-of-type {
 	opacity: 1;
 	transition: 0s;
-	font-weight: 200;
 }
+
 .p0.on span:nth-of-type(2) {
 	opacity: 1;
 	transition: 0s .4s;
 	margin-right: -.25em;
-	font-weight: 400;
 }
+
 .p0.on span:nth-of-type(3) {
 	opacity: 1;
 	transition: 0s .5s;
 	margin-right: -.25em;
-	font-weight: 600;
 }
+
 .p0.on span:nth-of-type(4) {
 	opacity: 1;
 	transition: 0s .7s;
 	margin-right: -.25em;
-	font-weight: 800;
 }
+
 .p0.on span:nth-of-type(5) {
 	opacity: 1;
 	transition: 0s 1.1s;
 	margin-right: -.25em;
-	font-family: "brenner sans";
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:nth-of-type(6) {
 	opacity: 1;
 	transition: 0s 1.4s;
 	margin-right: -.25em;
-	font-family: "brenner display";
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:nth-of-type(7) {
 	opacity: 1;
 	transition: 0s 1.7s;
 	margin-right: -.25em;
-	font-family: "brenner script";
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:nth-of-type(8) {
 	opacity: 1;
 	transition: 0s 2s;
-	font-family: "brenner script";
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:nth-of-type(9) {
 	opacity: 1;
 	transition: 0s 3s;
-	font-family: "brenner Sans condensed";
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:nth-of-type(10) {
 	opacity: 1;
 	transition: 0s 3.2s;
-	font-family: "brenner mono";
+	font-family: "Brenner Mono";
 }
+
 .p0.on span:nth-of-type(11) {
 	opacity: 1;
 	transition: 0s 3.7s;
-	font-family: "brenner slab";
+	font-family: "Brenner Mono";
 }
 
-.p1.on {
-	background: hotpink;
-	color: red;
+#repeat {
+	top: 33.5vw;
+	font-size: 21px;
+	color: rgb(212, 212, 212);
 }
+
+#repeat2 {
+	top: 35vw;
+	font-size: 20px;
+	color: rgb(172, 171, 171);
+}
+
+
+.p1.on {}
 
 /* **********************************************
 Sounds.
@@ -110,16 +165,250 @@ Sounds.
 	a sound starts.
 *********************************************  */
 
-/* The moment the class .sound1 is added to the body, the background is yellow */
-.sound1 {
-	background: hotpink;
-}
-
-/* The moment the class .sound1 is added to the body, the movie makes a turn */
 .sound1 #video-mask {
-	box-shadow: 2em 2em 2em olivedrab;
+	animation: shake 0.2s 6,
+		flash 1s;
+	position: relative;
 }
 
+@keyframes shake {
+	25% {
+		transform: rotate(2deg) translate(0, -2%);
+	}
+
+	50% {
+		transform: rotate(-2deg) translate(0, 2%);
+	}
+
+	75% {
+		transform: rotate(2deg) translate(0, -2%);
+	}
+
+	100% {
+		transform: rotate(0deg) translate(0, 0);
+	}
+}
+
+
+@keyframes flash {
+	0% {
+		box-shadow: none;
+	}
+
+	25% {
+		box-shadow: 0 0 60px 30px white;
+	}
+
+	50% {
+		box-shadow: none;
+	}
+
+	75% {
+		box-shadow: 0 0 60px 30px white;
+	}
+
+	100% {
+		box-shadow: none;
+	}
+}
+
+.sound2 #video-mask {
+	animation: siren 1s;
+}
+
+@keyframes siren {
+	0% {
+		box-shadow: 0 0 10px 10px red, 0 0 20px 20px blue;
+	}
+
+	25% {
+		box-shadow: 0 0 20px 20px blue, 0 0 30px 30px red;
+	}
+
+	50% {
+		box-shadow: 0 0 30px 30px red, 0 0 40px 40px blue;
+	}
+
+	75% {
+		box-shadow: 0 0 20px 20px blue, 0 0 30px 30px red;
+	}
+
+	100% {
+		box-shadow: 0 0 10px 10px red, 0 0 20px 20px blue;
+	}
+}
+
+.sound3 #video-mask {
+	animation: tril 0.2s 5, upcomingflash 1s;
+	animation-delay: 0.4s;
+}
+
+@keyframes upcomingflash {
+	0% {
+		box-shadow: none;
+	}
+
+	20% {
+		box-shadow: 0 0 20px 10px white, 0 0 40px 20px #33f, 0 0 60px 30px #66f, 0 0 80px 40px #99f;
+	}
+
+	40% {
+		box-shadow: 0 0 20px 10px white, 0 0 60px 30px #33f, 0 0 80px 40px #66f, 0 0 100px 50px #99f;
+	}
+
+	60% {
+		box-shadow: 0 0 20px 10px white, 0 0 80px 40px #33f, 0 0 100px 50px #66f, 0 0 120px 60px #99f;
+	}
+
+	80% {
+		box-shadow: 0 0 20px 10px white, 0 0 100px 50px #33f, 0 0 120px 60px #66f, 0 0 140px 70px #99f;
+	}
+
+	100% {
+		box-shadow: 0 0 20px 10px white, 0 0 120px 60px #33f, 0 0 140px 70px #66f, 0 0 160px 80px #99f;
+	}
+}
+
+@keyframes tril {
+	25% {
+		transform: translate(0, -2%);
+	}
+
+	50% {
+		transform: translate(0, 2%);
+	}
+
+	75% {
+		transform: translate(0, -2%);
+	}
+
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+.sound4 #video-mask {
+	animation: upcomingflash2 1s;
+}
+
+@keyframes upcomingflash2 {
+	0% {
+		box-shadow: 0 0 20px 10px white, 0 0 120px 60px #33f, 0 0 140px 70px #66f, 0 0 160px 80px #99f, 0 0 100vw 100vh #99f;
+	}
+
+	100% {
+		box-shadow: 0 0 20px 10px white, 0 0 120px 60px #33f, 0 0 140px 70px #66f, 0 0 160px 80px #99f, 0 0 100vw 100vh #99f;
+	}
+}
+
+.sound5 #video-mask {
+	animation: tril 0.2s 5,
+		upcomingflash 1s;
+	animation-delay: 0.8s;
+}
+
+.sound6 #video-mask {
+	animation: upcomingflash2 1s;
+}
+
+.sound7 #video-mask {
+	animation: tril 0.2s 5,
+		upcomingflash 1s;
+}
+
+.sound8 #video-mask {
+	animation: upcomingflash2 1s;
+}
+
+.sound9 {
+	/* animation: noise 41s linear; */
+}
+
+/* @keyframes noise {
+	0% {
+		background-color: black;
+	}
+
+	5% {
+		background-color: white;
+	}
+
+	10% {
+		background-color: black;
+	}
+
+	15% {
+		background-color: white;
+	}
+
+	20% {
+		background-color: black;
+	}
+
+	25% {
+		background-color: white;
+	}
+
+	30% {
+		background-color: black;
+	}
+
+	35% {
+		background-color: white;
+	}
+
+	40% {
+		background-color: black;
+	}
+
+	45% {
+		background-color: white;
+	}
+
+	50% {
+		background-color: black;
+	}
+
+	55% {
+		background-color: white;
+	}
+
+	60% {
+		background-color: black;
+	}
+
+	65% {
+		background-color: white;
+	}
+
+	70% {
+		background-color: black;
+	}
+
+	75% {
+		background-color: white;
+	}
+
+	80% {
+		background-color: black;
+	}
+
+	85% {
+		background-color: white;
+	}
+
+	90% {
+		background-color: black;
+	}
+
+	95% {
+		background-color: white;
+	}
+
+	100% {
+		background-color: black;
+	}
+} */
 
 /* **********************************************
 Basic layout.
@@ -131,10 +420,14 @@ body {
 	height: 100vh;
 	margin: 0;
 	justify-content: center;
+	background-color: black;
+	overflow: hidden;
 }
+
 #video-container {
 	margin: auto;
 }
+
 #video-mask {
 	aspect-ratio: 240.5/100;
 	display: grid;
@@ -144,7 +437,6 @@ body {
 }
 
 iframe {
-	width: 80vw;
-	height: 53.33333333vw;
-	margin-top: -0.35vw;
+	width: 60vw;
+	height: 40vw;
 }
