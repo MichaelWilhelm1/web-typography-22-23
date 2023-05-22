@@ -471,8 +471,8 @@ Sounds.
 	justify-content: center;
 	background: linear-gradient(45deg, #e4b1e6, #71a5e9, rgb(255, 208, 136), rgb(228, 228, 228), #eaadf0);
 	background-size: 600% 600%;
-	animation: Gradient 5s ease infinite,
-		floatingAnimation 10s infinite linear;
+	animation: Gradient 5s 9 ease,
+		floatingAnimation 10s 4, 3 linear;
 }
 
 @keyframes Gradient {
