@@ -9,7 +9,7 @@ Feel free to adjust the defaults to your needs.
 	opacity: 0;
 	transition: .05s;
 	position: absolute;
-
+	z-index: 99;
 }
 
 #closed-captions .on {
@@ -52,7 +52,7 @@ Feel free to adjust the defaults to your needs.
 	font-style: italic;
 	color: red;
 	font-weight: 650;
-	font-size: 40px;
+	font-size: 20px;
 	letter-spacing: 2px;
 	text-shadow: 1px 1px 4px black;
 	text-align: center;
@@ -164,6 +164,24 @@ Sounds.
 	style anything within the body the moment
 	a sound starts.
 *********************************************  */
+
+.sound0 #video-mask {
+	animation: grow 1s;
+}
+
+@keyframes grow {
+	25% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
 
 .sound1 #video-mask {
 	animation: shake 0.2s 6,
@@ -324,13 +342,13 @@ Sounds.
 	width: 100%;
 	height: 100vh;
 	background-color: black;
-	position: fixed;
+	position: relative;
 	top: 0;
 	left: 0;
-	animation: flickerAnimation 0.50s 82,
-		flickerAnimation2 0.30s 120 5s,
-		flickerAnimation3 0.20s 105 20s,
-		flickerAnimation4 0.05s 200 30s;
+	animation: flickerAnimation 2s 20,
+		flickerAnimation2 1s 36 5s,
+		flickerAnimation3 0.60s 35 20s,
+		flickerAnimation4 0.30s 36 30s;
 }
 
 @keyframes flickerAnimation {
@@ -442,6 +460,39 @@ Sounds.
 		opacity: 1;
 		background-color: white;
 		animation-timing-function: ease-out;
+	}
+}
+
+.sound10 {
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(45deg, #e4b1e6, #71a5e9, rgb(255, 208, 136), rgb(228, 228, 228), #eaadf0);
+	background-size: 600% 600%;
+	animation: Gradient 5s ease infinite;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 0%
+	}
+
+	25% {
+		background-position: 100% 0%
+	}
+
+	50% {
+		background-position: 100% 100%
+	}
+
+	75% {
+		background-position: 0% 100%
+	}
+
+	100% {
+		background-position: 0% 0%
 	}
 }
 
